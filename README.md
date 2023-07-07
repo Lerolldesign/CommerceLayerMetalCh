@@ -122,7 +122,13 @@ yarn global add @commercelayer/cli
 6. Log into your application via the CLI using the previously created CLI credentials like so:
 
 ```bash
-cl applications:login -o <organizationSlug> -i <clientId> -s <clientSecret> -a <applicationAlias>
+cl applications:login -o METAL.CH -i lsR7FPs5JMl09eBsI754piOTtiPRXAEzpj92A3Gg_Fg -s ZcK_YjgCc2nxpQTP-rQUjJU3nr4MlIfnlTbWgHHiawI -a Admin
+sanity dataset import ./data/production-export-2023-03-23t19-38-59-082z/data.ndjson production
+
+
+
+
+
 ```
 
 7. Install the [seeder plugin](https://github.com/commercelayer/commercelayer-cli-plugin-seeder/blob/main/README.md) using the command below:
