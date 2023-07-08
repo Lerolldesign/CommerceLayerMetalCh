@@ -75,10 +75,7 @@ const ProductPage: FunctionComponent<Props> = ({
       }
     };
   });
-  const handleBackTo = (e: any) => {
-    e.preventDefault();
-    router.back();
-  };
+
   const languageCode = parseLanguageCode(lang, "toLowerCase", true);
 
   const [selectedVariant, setSelectedVariant] = useState<string>();
