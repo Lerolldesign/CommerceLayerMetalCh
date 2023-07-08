@@ -10,7 +10,7 @@ const Header: React.FunctionComponent<Props> = ({ lang }) => {
   return (
     <main>
       <div className="sm:relative">
-        <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
+        <div className="mx-auto w-full  max-w-screen lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
           <div className="px-6 pt-10 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-36 lg:pb-56 xl:col-span-6">
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h1 className="text-center sm:text-left text-5xl sm:text-4xl mb-20 sm:mb-10 font-bold tracking-tight text-gray-900">

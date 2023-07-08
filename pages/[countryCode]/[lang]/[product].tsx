@@ -90,7 +90,7 @@ const ProductPage: FunctionComponent<Props> = ({
         <OrderContainer attributes={{ language_code: languageCode }}>
           <Layout cms={cms} pageTitle={product.name} lang={lang} buildLanguages={buildLanguages} countries={countries}>
 
-          <div className="pattern  md:overflow-hidden pin flex flex-wrap text-grey-dark font-sans font-hairline text-4xl  leading-loose">
+          <div className="md:overflow-hidden pin flex flex-wrap text-grey-dark font-sans font-hairline text-4xl  leading-loose">
             <div className=" flex w-full mx-20">
              <div className="md:pl-3 md:pr-0 pt-8 pb-0 md:pb-6 px-2 w-full flex flex-wrap bg-grey-light">
               <div className="relative h-auto text-center md:text-left w-full mt-32 ">
