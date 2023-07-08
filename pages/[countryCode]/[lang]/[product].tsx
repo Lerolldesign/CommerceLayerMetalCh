@@ -92,51 +92,32 @@ const ProductPage: FunctionComponent<Props> = ({
       <OrderStorage persistKey={`order-${countryCode}`}>
         <OrderContainer attributes={{ language_code: languageCode }}>
           <Layout cms={cms} pageTitle={product.name} lang={lang} buildLanguages={buildLanguages} countries={countries}>
-            <div className="container mx-auto max-w-screen-lg px-5 lg:px-0 text-sm text-gray-700">
-              <a href="#" onClick={handleBackTo}>
-                <Image
-                  title="back"
-                  src="/back.svg"
-                  className="w-5 h-5 inline-block"
-                  alt="Back to previous page SVG icon"
-                  width={20}
-                  height={20}
-                />
-                <p className="ml-2 hover:underline inline-block align-middle">{locale[lang].backToAllProducts}</p>
-              </a>
-            </div>
-            <div className="container mx-auto max-w-screen-lg py-10 lg:py-16 flex flex-row">
-              <div className="flex flex-wrap sm:flex-nowrap sm:space-x-5 px-5 lg:px-0">
-                <div className="w-full pb-5 lg:pb-0">
-                  <Image
-                    alt={product.name}
-                    className="w-full object-center rounded border border-gray-200"
-                    src={imgUrl}
-                    width={500}
-                    height={500}
-                  />
-                </div>
-                <div className="w-full">
-                  <h2 className="text-sm title-font text-gray-500 tracking-widest">BRAND</h2>
-                  <p className="text-gray-900 text-3xl title-font font-medium my-3">{product.name}</p>
-                  <p className="text-gray-600 text-xl title-font font-medium my-3">{selectedVariant}</p>
-                  <p className="leading-relaxed">{product.description}</p>
-                  <div className="flex items-center border-b-2 border-gray-200 py-5">
-                    <div className="flex items-center">
-                      <div className="relative" data-children-count="1">
-                        <select
+
+          <div className="pattern  md:overflow-hidden pin flex flex-wrap text-grey-dark font-sans font-hairline text-4xl  leading-loose">
+            <div className=" flex w-full mx-20">
+             <div className="md:pl-3 md:pr-0 pt-8 pb-0 md:pb-6 px-2 w-full flex flex-wrap bg-grey-light">
+              <div className="relative h-auto text-center md:text-left w-full mt-32 ">
+                <h2 className="text-sm title-font text-gray-500 tracking-widest">BRAND</h2>
+                  <p className="text-gray-900 text-xl md:text-2xl xl:text-[2.5rem] w-1/3 font-extrabold title-font  my-3 uppercase tracking-wide !leading-9">{product.name}</p>
+              </div>
+           <div className="h-auto relative w-full bg-grey">
+
+  <div className="flex flex-col-reverse xl:flex-row">
+      <div className="w-1/3">
+          <div className="relative" data-children-count="1">
+                    <select
                           placeholder={locale[lang].selectSize as string}
                           className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-blue-500 text-base pl-3 pr-10"
                           value={selectedVariant}
                           onChange={(e) => setSelectedVariant(e.target.value)}
-                        >
+                    >
                           {variantOptions?.map((option) => (
                             <option key={option.code} value={option.code}>
                               {option.label}
                             </option>
                           ))}
-                        </select>
-                        <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                    </select>
+                 <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                           <svg
                             fill="none"
                             stroke="currentColor"
@@ -146,33 +127,47 @@ const ProductPage: FunctionComponent<Props> = ({
                             className="w-4 h-4"
                             viewBox="0 0 24 24"
                           >
-                            <path d="M6 9l6 6 6-6"></path>
                           </svg>
                         </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center pt-5">
-                    <span className="title-font font-medium text-2xl text-gray-900">
-                      <PricesContainer>
+            </div>
+            <div className="flex items-center">
+            <PricesContainer>
                         <Price
                           skuCode={selectedVariant}
-                          className="text-green-600 mr-1"
-                          compareClassName="text-gray-500 line-through text-lg"
+                          className="text-metal tracking-wide !text-[1.5rem] font-semibold mr-1"
+                          compareClassName="!text-[1rem] text-gray-500 line-through text-lg"
                         />
-                      </PricesContainer>
-                    </span>
-                    <AddToCartButton
+            </PricesContainer>
+            </div>
+            <div>
+            <AddToCartButton
                       skuCode={selectedVariant}
                       label={locale[lang].addToCart as string}
-                      className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm md:text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="btn_mask text-[1rem] text-white tracking-wide font-bold rounded-full bg-black focus:outline-none focus:ring-3 focus:ring-offset-2 focus:ring-metal disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {AddToCartCustom}
-                    </AddToCartButton>
-                  </div>
-                </div>
-              </div>
+            </AddToCartButton>
             </div>
+   </div>
+   <div className="relative bottom-32 flex w-full xl:w-1/2 xl:h-full">
+        <div >
+                  <Image
+                    alt={product.name}
+                    className="w-full object-center rounded borde"
+                    src={imgUrl}
+                    width={500}
+                    height={500}
+                  />
+    </div>
+  </div>
+
+  </div>
+
+            </div>
+        </div>
+      </div>
+
+  </div>
           </Layout>
         </OrderContainer>
       </OrderStorage>

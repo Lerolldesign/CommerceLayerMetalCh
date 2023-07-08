@@ -1,0 +1,15 @@
+     
+     Référence
+     
+      <p className="text-gray-600 text-xl title-font font-medium my-3">{selectedVariant}</p>
+
+
+       <p className="leading-relaxed">{product.description}</p>
+
+        <Image
+            alt={product.name}
+            className="w-full object-center rounded border border-gray-200"
+            src={imgUrl}
+            width={500}
+             height={500}
+        />
