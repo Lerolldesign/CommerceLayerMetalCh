@@ -32,7 +32,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
     `}
   </style>
       <Component {...pageProps} />
-   
     </>
   );
 }
