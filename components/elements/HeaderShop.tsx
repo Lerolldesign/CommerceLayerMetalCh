@@ -45,7 +45,7 @@ const HeaderShop: React.FunctionComponent<Props> = ({
                 <Link href="/" passHref>
                   <span className="sr-only">metal chronometrie</span>
                   <Image
-                    className="lg:h-full lg:w-full w-[350px] h-auto"
+                    className="lg:h-full lg:w-full w-[250px] h-auto"
                     src={Logo}
                     alt="Logo Metal Chronometrie"
                     loading="eager"
