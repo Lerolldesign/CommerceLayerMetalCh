@@ -8,6 +8,7 @@ import CountrySelector from "../CountrySelector";
 import { Country } from "@typings/models";
 import { Transition } from "@headlessui/react";
 import locale from "@locale/index";
+import  Logo  from "../assets/logo-metal-chronometrie-dark.png"
 
 
 
@@ -43,8 +44,8 @@ const HeaderShop: React.FunctionComponent<Props> = ({
                 <Link href="/" passHref>
                   <span className="sr-only">metal chronoetrie</span>
                   <Image
-                    className="h-8 w-full"
-                    src=""
+                    className="h-full w-full"
+                    src={Logo}
                     alt="Logo Metal Chronometrie"
                     loading="eager"
                     width={300}
