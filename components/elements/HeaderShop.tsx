@@ -8,7 +8,7 @@ import CountrySelector from "../CountrySelector";
 import { Country } from "@typings/models";
 import { Transition } from "@headlessui/react";
 import locale from "@locale/index";
-import Logo from '../assets/logo-metal-chronometrie-dark.png'
+
 
 
 type Props = {
@@ -41,9 +41,10 @@ const HeaderShop: React.FunctionComponent<Props> = ({
             <div className="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
               <div className="flex items-center justify-between w-full md:w-auto">
                 <Link href="/" passHref>
+                  <span className="sr-only">metal chronoetrie</span>
                   <Image
-                    className="h-full w-full z-20"
-                    src={Logo}
+                    className="h-8 w-full"
+                    src=""
                     alt="Logo Metal Chronometrie"
                     loading="eager"
                     width={300}
@@ -160,4 +161,4 @@ const HeaderShop: React.FunctionComponent<Props> = ({
   )
 }
 
-export default HeaderShop
+export default HeaderShop;
