@@ -73,7 +73,7 @@ const ShoppingBag: React.FunctionComponent<Props> = ({ handleAnimation, lang = "
               <LineItemsContainer>
                 <header className="px-4 sm:px-6">
                   <div className="flex items-start justify-between space-x-3">
-                    <h2 className="text-lg leading-7 font-medium text-gray-900">
+                    <h2 className="text-lg leading-7 font-medium text-gray-900 font-metalch">
                       {locale[lang].yourShoppingCart} <LineItemsCount /> {locale[lang].items}
                     </h2>
                     <div className="h-7 flex items-center">
