@@ -19,6 +19,8 @@ import { parseImg, parseLanguageCode } from "@utils/parser";
 import { cmsFunctions } from "@utils/cms";
 import { Product, Country } from "@typings/models";
 
+
+
 type Props = {
   product: Product;
   clientId: string;
@@ -95,7 +97,7 @@ const ProductPage: FunctionComponent<Props> = ({
              <div className="md:pl-3 md:pr-0 pt-8 pb-0 md:pb-6 px-2 w-full flex flex-wrap bg-grey-light">
               <div className="relative h-auto text-center md:text-left w-full mt-32 ">
                 <h2 className="text-sm title-font text-gray-500 tracking-widest">BRAND</h2>
-                  <p className="text-gray-900 text-xl md:text-2xl xl:text-[2.5rem] w-1/3 font-extrabold title-font  my-3 uppercase tracking-wide !leading-9">{product.name}</p>
+                  <p className="text-gray-900 font-metalch text-xl md:text-2xl xl:text-[2.5rem] w-1/3 font-extrabold title-font  my-3 uppercase tracking-wide !leading-9">{product.name}</p>
               </div>
            <div className="h-auto relative w-full bg-grey">
 

@@ -9,7 +9,7 @@ import { Transition } from "@headlessui/react";
 import { SocialIcon } from "./SocialIcons";
 import HeaderShop from "./elements/HeaderShop";
 import ShoppingBag from "./ShoppingBag";
-import FooterShop from "./elements/FooterShop"
+import FooterShop from "./elements/FooterShop";
 
 
 type Props = {
@@ -41,6 +41,7 @@ const Layout: React.FunctionComponent<Props> = ({
 
   return (
     <LayoutContext.Provider value={{ handleAnimation }}>
+   
       <SEOHead productName={pageTitle} />
 
       <div className="relative bg-ashy pattern overflow-hidden">
@@ -114,6 +115,7 @@ const Layout: React.FunctionComponent<Props> = ({
         <main>{children}</main>
         <FooterShop />
       </div>
+      
     </LayoutContext.Provider>
   );
 };
