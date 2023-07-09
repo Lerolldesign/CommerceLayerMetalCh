@@ -1,8 +1,11 @@
-import React, { FunctionComponent, PropsWithChildren } from "react";
 
-const FooterShop: FunctionComponent<PropsWithChildren> = ({ children }) => {
+
+import React from 'react'
+
+export const FooterShop = () => {
   return (
-  <footer> 
+    <div>
+        <footer> 
 <div className="w-full md:overflow-hidden pin flex flex-wrap">
     <div className=" h-full flex w-full mx-auto">
         <div className="md:pl-3 md:pr-0 pt-8 pb-0 md:pb-6 px-2 w-full flex flex-wrap bg-grey-light text-left">
@@ -21,9 +24,9 @@ const FooterShop: FunctionComponent<PropsWithChildren> = ({ children }) => {
     </div>
     </div>
 </div>
-<main>{children}</main>
-</footer> 
-  );
-};
 
-export default FooterShop
+</footer> 
+    </div>
+  )
+}
+
