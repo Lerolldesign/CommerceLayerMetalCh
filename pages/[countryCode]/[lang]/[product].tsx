@@ -92,21 +92,25 @@ const ProductPage: FunctionComponent<Props> = ({
         <OrderContainer attributes={{ language_code: languageCode }}>
           <Layout cms={cms} pageTitle={product.name} lang={lang} buildLanguages={buildLanguages} countries={countries}>
 
-          <div className="md:overflow-hidden pin flex flex-wrap text-grey-dark font-sans font-hairline text-4xl  leading-loose">
-            <div className=" flex w-full mx-20">
-             <div className="md:pl-3 md:pr-0 pt-8 pb-0 md:pb-6 px-2 w-full flex flex-wrap bg-grey-light">
-              <div className="relative h-auto text-center md:text-left w-full mt-32 ">
-                <h2 className="text-sm title-font text-gray-500 tracking-widest">BRAND</h2>
-                  <p className="text-gray-900 font-metalch text-xl md:text-2xl xl:text-[2.5rem] w-1/3 font-extrabold title-font  my-3 uppercase tracking-wide !leading-9">{product.name}</p>
-              </div>
-           <div className="h-auto relative w-full bg-grey">
+<div className="h-auto flex w-full text-center lg:text-left">
+  <div className=" w-full flex flex-wrap bg-grey-light">
+   
+      <div className=" h-auto  w-full lg:w-1/3 bg-grey">
+        <div className="pt-20 lg:pt-60 lg:pl-24">
+          <span className="uppercase pt-20 lg:pt-60 left-36 title-font font-bold text-gray-500 tracking-widest text-sm"> Brand</span>
+            <h2 className="z-20 text-gray-900 font-metalch text-xl md:text-2xl lg:text-[3rem] lg:leading-[3rem] w-full lg:w-2/3 font-extrabold title-font  md:my-3 uppercase tracking-wider">{product.name}</h2>
+        </div>
 
-  <div className="flex flex-col-reverse xl:flex-row">
-      <div className="w-1/3">
-          <div className="relative" data-children-count="1">
+
+        
+      <div className="flex flex-col-reverse lg:flex lg:flex-row lg:w-screen">
+        <div className="w-full lg:w-1/2 bg-grey">
+   
+
+            <div className="lg:pl-24 lg:pt-8" data-children-count="1">
                     <select
                           placeholder={locale[lang].selectSize as string}
-                          className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-blue-500 text-base pl-3 pr-10"
+                          className="lg:w-1/3 text-center border-0 cursor-pointer rounded-full font-metalch text-xs h-10 bg-gray-100 duration-300 hover:bg-metal focus:bg-gray-300"
                           value={selectedVariant}
                           onChange={(e) => setSelectedVariant(e.target.value)}
                     >
@@ -127,18 +131,18 @@ const ProductPage: FunctionComponent<Props> = ({
                             viewBox="0 0 24 24"
                           >
                           </svg>
-                        </span>
-            </div>
-            <div className="flex items-center">
+                  </span>
+      
+          <div className="pt-5 lg:pl-28 ">
             <PricesContainer>
                         <Price
                           skuCode={selectedVariant}
-                          className="text-metal tracking-wide !text-[1.5rem] font-semibold mr-1"
+                          className="text-metal tracking-wide text-xl lg:!text-[1.5rem] font-semibold mr-1"
                           compareClassName="!text-[1rem] text-gray-500 line-through text-lg"
                         />
             </PricesContainer>
-            </div>
-            <div>
+          </div>
+          <div className="pt-10">
             <AddToCartButton
                       skuCode={selectedVariant}
                       label={locale[lang].addToCart as string}
@@ -147,26 +151,27 @@ const ProductPage: FunctionComponent<Props> = ({
                       {AddToCartCustom}
             </AddToCartButton>
             </div>
-   </div>
-   <div className="relative bottom-32 flex w-full xl:w-1/2 xl:h-full">
-        <div >
-                  <Image
+            </div>
+
+    </div>
+
+  <div>
+  <div className="relative lg:right-72 lg:bottom-[25vh] w-full lg:w-full">
+      <Image
                     alt={product.name}
-                    className="w-full object-center rounded borde"
+                    className="object-center items-center w-full py-3"
                     src={imgUrl}
                     width={500}
                     height={500}
                   />
-    </div>
-  </div>
-
-  </div>
-
-            </div>
-        </div>
       </div>
-
   </div>
+
+</div>
+</div> 
+</div>
+</div>
+
           </Layout>
         </OrderContainer>
       </OrderStorage>
