@@ -8,7 +8,7 @@ import CountrySelector from "../CountrySelector";
 import { Country } from "@typings/models";
 import { Transition } from "@headlessui/react";
 import locale from "@locale/index";
-import  Logo  from "../assets/logo-metal-chronometrie-dark.png"
+import Logo from "../assets/logo-metal-chronometrie-dark.png"
 
 
 
