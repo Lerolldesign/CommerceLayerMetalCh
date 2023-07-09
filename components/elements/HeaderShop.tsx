@@ -48,7 +48,7 @@ const HeaderShop: React.FunctionComponent<Props> = ({
                   <span className="sr-only">metal chronoetrie</span>
                   <Image
                     className="h-8 w-full"
-                    src="https://cdn.sanity.io/images/6087dfkg/production/e19fb082b6decfb1d21651aba5fa7de527d23d2a-250x80.svg"
+                    src=""
                     alt="Logo Metal Chronometrie"
                     loading="eager"
                     width={300}
