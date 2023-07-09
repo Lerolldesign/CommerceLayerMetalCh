@@ -8,22 +8,17 @@ import CountrySelector from "../CountrySelector";
 import { Country } from "@typings/models";
 import { Transition } from "@headlessui/react";
 import locale from "@locale/index";
-import { SocialIcon } from "../SocialIcons";
+
 
 type Props = {
-  children: React.ReactNode;
-  title?: string;
-  socialIcons?: SocialIcon[];
+
   showMenu?: boolean;
   lang?: string;
   buildLanguages?: Country[];
   countries?: Country[];
-  cms: string;
-  pageTitle?: string;
 };
 
 const HeaderShop: React.FunctionComponent<Props> = ({
-     children,
     showMenu = true,
     lang = "en-us",
     buildLanguages = [],
@@ -158,7 +153,7 @@ const HeaderShop: React.FunctionComponent<Props> = ({
         </Transition>
       </div>
       <ShoppingBag active={animation} handleAnimation={handleAnimation} lang={lang} />
-        <main>{children}</main>
+   
     </div>
   </ div>
   
