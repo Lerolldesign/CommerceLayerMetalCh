@@ -8,7 +8,6 @@
     "no-multi-spaces": "error",
     "array-bracket-spacing": ["error", "never"],
     "react/no-unescaped-entities": "off",
-    "semi": ["error", "always"],
     "semi-style": ["error", "last"],
     "space-in-parens": ["error", "never"],
     "array-element-newline": ["error", "consistent"],
