@@ -45,7 +45,7 @@ const HeaderShop: React.FunctionComponent<Props> = ({
                 <Link href="/" passHref>
                   <span className="sr-only">metal chronometrie</span>
                   <Image
-                    className="h-full w-full"
+                    className="lg:h-full lg:w-full w-[350px] h-auto"
                     src={Logo}
                     alt="Logo Metal Chronometrie"
                     loading="eager"
@@ -53,43 +53,16 @@ const HeaderShop: React.FunctionComponent<Props> = ({
                     height={50}
                   />
                 </Link>
-                {showMenu && (
-                  <div className="-mr-2 flex items-center md:hidden">
-                    <button
-                      type="button"
-                      className="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black"
-                      id="main-menu"
-                      aria-haspopup="true"
-                      onClick={() => setBurgerMenu(!burgerMenu)}
-                    >
-                      <span className="sr-only">Open main menu</span>
-                      <svg
-                        className="h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4 6h16M4 12h16M4 18h16"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                )}
+             
               </div>
             </div>
 
 
-            <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+            <div className=" md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
               {showMenu && (
                 <a href="#" onClick={handleAnimation}>
                   <div className="flex flex-row items-center">
-                    <span className="hidden md:inline-block">{locale[lang].shoppingBag}</span>
+                    <span className="absolute right-0 md:inline-block">{locale[lang].shoppingBag}</span>
                     <LineItemsContainer>
                       <LineItemsCount className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium leading-5 bg-indigo-500 hover:bg-indigo-400 text-gray-50" />
                     </LineItemsContainer>
