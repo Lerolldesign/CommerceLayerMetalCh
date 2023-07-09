@@ -22,7 +22,6 @@
         "afterColon": true
       }
     ],
-    "no-trailing-spaces": ["error", { "ignoreComments": true }],
     "no-unused-vars": "off"
   }
 }
