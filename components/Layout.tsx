@@ -38,7 +38,6 @@ const Layout: React.FunctionComponent<Props> = ({
     event.preventDefault();
     setAnimation(!animation);
   };
-  const opacity = animation ? "opacity-25 transition ease-in duration-300" : "transition ease-in duration-300";
 
   return (
     <LayoutContext.Provider value={{ handleAnimation }}>

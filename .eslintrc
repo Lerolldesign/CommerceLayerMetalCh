@@ -22,6 +22,7 @@
         "afterColon": true
       }
     ],
+    "no-trailing-spaces":  "off",
     "no-unused-vars": "off"
   }
 }
