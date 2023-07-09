@@ -21,6 +21,7 @@ const FooterShop: FunctionComponent<PropsWithChildren> = ({ children }) => {
     </div>
     </div>
 </div>
+<main>{children}</main>
 </footer> 
   );
 };
