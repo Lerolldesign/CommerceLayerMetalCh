@@ -17,7 +17,7 @@ const metalch = localFont({
   src:"../fonts/integralcf-bold.ttf",
   display: 'swap',
   variable: '--font-metalch',
-})
+});
 
 
 
