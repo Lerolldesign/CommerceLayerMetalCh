@@ -162,4 +162,4 @@ const HeaderShop: React.FunctionComponent<Props> = ({
   )
 }
 
-export default HeaderShop;
+export default HeaderShop

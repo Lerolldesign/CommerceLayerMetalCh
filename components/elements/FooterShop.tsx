@@ -26,4 +26,4 @@ const FooterShop: FunctionComponent<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export default FooterShop;
+export default FooterShop
