@@ -98,13 +98,13 @@ const ProductPage: FunctionComponent<Props> = ({
       <div className=" h-auto  w-full lg:w-1/3 bg-grey">
         <div className="pt-20 lg:pt-60 lg:pl-24">
           <span className="uppercase pt-20 lg:pt-60 left-36 title-font font-bold text-gray-500 tracking-widest text-sm"> Brand</span>
-            <h2 className="z-20 text-gray-900 font-metalch text-xl md:text-2xl lg:text-[3rem] lg:leading-[3rem] w-full lg:w-2/3 font-extrabold title-font  md:my-3 uppercase tracking-wider">{product.name}</h2>
+            <h2 className="z-20 text-gray-900 font-metalch text-xl md:text-2xl lg:text-[3rem] lg:leading-[3rem] px-20 sm:px-60 lg:px-0 w-full lg:w-2/3 font-extrabold title-font  md:my-3 uppercase tracking-wider">{product.name}</h2>
         </div>
 
 
         
       <div className="flex flex-col-reverse lg:flex lg:flex-row lg:w-screen">
-        <div className="w-full lg:w-1/2 bg-grey">
+        <div className="w-full lg:w-1/2">
    
 
             <div className="lg:pl-24 lg:pt-8" data-children-count="1">
@@ -142,7 +142,7 @@ const ProductPage: FunctionComponent<Props> = ({
                         />
             </PricesContainer>
           </div>
-          <div className="pt-10">
+          <div className="pt-5">
             <AddToCartButton
                       skuCode={selectedVariant}
                       label={locale[lang].addToCart as string}
@@ -156,10 +156,10 @@ const ProductPage: FunctionComponent<Props> = ({
     </div>
 
   <div>
-  <div className="relative lg:right-72 lg:bottom-[25vh] w-full lg:w-full">
+  <div className="relative lg:right-72 lg:bottom-[25vh] w-full  lg:w-full">
       <Image
                     alt={product.name}
-                    className="object-center items-center w-full py-3"
+                    className="object-center items-center sm:px-40 w-full px-12 py-3"
                     src={imgUrl}
                     width={500}
                     height={500}
