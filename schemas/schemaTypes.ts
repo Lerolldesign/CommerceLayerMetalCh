@@ -7,6 +7,7 @@ import taxonomy from "./documents/taxonomy";
 import variant from "./documents/variant";
 import productImage from "./documents/productImage";
 import product from "./documents/product";
+import collection from "./documents/collection";
 
 import localeString from "./locale/String";
 import localeText from "./locale/Text";
@@ -23,6 +24,7 @@ export default [
   variant,
   productImage,
   product,
+  collection,
   localeString,
   localeText,
   localeSlug,

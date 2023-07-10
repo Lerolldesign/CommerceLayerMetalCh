@@ -42,6 +42,11 @@ export interface Product {
 
 }
 
+export interface Collection {
+  name: string;
+  slug: string;
+}
+
 export interface Variant {
   name: string;
   code: string;

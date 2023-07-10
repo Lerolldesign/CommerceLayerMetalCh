@@ -1,7 +1,7 @@
 import { createClient, groq } from "next-sanity";
 import _ from "lodash";
-import { Product, Taxon, Taxonomy, Variant } from "@typings/models";
-import { SanityCountry, SanityProduct, SanityTaxon, SanityTaxonomy, SanityVariant } from "./typings";
+import { Product, Collection, Taxon, Taxonomy, Variant } from "@typings/models";
+import { SanityCountry, SanityProduct, SanityCollection, SanityTaxon, SanityTaxonomy, SanityVariant } from "./typings";
 import { parseLocale } from "@utils/parser";
 
 const client = createClient({
@@ -68,6 +68,16 @@ const parsingProduct = (products: SanityProduct[] | SanityProduct, lang = "en_us
       };
 };
 
+const parsingCollection = (collections: SanityCollection[], lang = "en_us"): Collection[] => {
+  return collections.map((collection) => {
+    const localization = {
+      name: collection?.name[lang],
+      slug: collection?.slug[lang].current,
+    };
+    return { ...collection, ...localization };
+  });
+};
+
 const parsingTaxon = (taxons: SanityTaxon[], lang = "en_us"): Taxon[] => {
   return taxons.map((taxon) => {
     const localization = {
@@ -104,6 +114,7 @@ const sanityAllTaxonomies = async (catalogId: string, locale = "en-US") => {
         'products': products[]->{
           name,
           description,
+   
           
           reference,
           slug,
@@ -146,6 +157,17 @@ const sanityGetProduct = async (slug: string, locale = "en-US") => {
   }`;
   const item: any[] = await client.fetch(query);
   return parsingProduct(_.first(item), lang);
+};
+
+const sanityGetCollection = async (slug: string, locale = "en-US") => {
+  const lang = parseLocale(locale, "_", "-", "lowercase");
+  const query = groq`*[_type == "collection" && slug["${lang}"].current == "${slug}"]{
+    name,
+    slug,
+    }    
+  }`;
+  const item: any[] = await client.fetch(query);
+  return parsingCollection(_.first(item), lang);
 };
 
 const sanityData = {

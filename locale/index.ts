@@ -7,6 +7,7 @@ type Locale = {
 const locale: Locale = {
   "en-us": {
     welcomeTo: "Welcome to the",
+    imhungry: "I'm a big genius not in a bottle",
     addToCart: "Add to cart",
     available: "available",
     notAvailable: "Not available",
@@ -52,6 +53,7 @@ const locale: Locale = {
   },
   "it-it": {
     welcomeTo: "Benvenuto a",
+    imhungry: "comida",
     addToCart: "Aggiungi al carrello",
     available: "disponibile",
     notAvailable: "non disponibile",
@@ -87,7 +89,7 @@ const locale: Locale = {
     subTotal: "Totale parziale",
     discount: "Sconto",
     taxes: "Tasse",
-    giftCard: "Gift Card",
+    giftCard: "Buono Regalo",
     items: "prodotti",
     viewMore: "view more",
     shipping: "Spedizione",
@@ -97,6 +99,7 @@ const locale: Locale = {
   },
   "fr-fr": {
     welcomeTo: "Bienvenue à la",
+    imhungry: "je suis un génie dans une bouteille",
     addToCart: "Ajouter au panier",
     available: "disponible",
     notAvailable: "Pas disponible",

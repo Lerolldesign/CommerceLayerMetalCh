@@ -21,8 +21,7 @@ import locale from "@locale/index";
 import { parseImg, parseLanguageCode } from "@utils/parser";
 import { cmsFunctions } from "@utils/cms";
 import { Product, Country } from "@typings/models";
-
-
+import HeaderShop from "@components/elements/HeaderShop";
 
 
 
@@ -98,7 +97,7 @@ const ProductPage: FunctionComponent<Props> = ({
       <OrderStorage persistKey={`order-${countryCode}`}>
         <OrderContainer attributes={{ language_code: languageCode }}>
           <Layout cms={cms} pageTitle={product.name} lang={lang} buildLanguages={buildLanguages} countries={countries}>
-
+          <HeaderShop lang={lang} />
 <div className="h-auto flex w-full text-center lg:text-left">
  
   <div className=" w-full flex flex-wrap bg-grey-light">
