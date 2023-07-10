@@ -9,7 +9,7 @@ import { Country } from "@typings/models";
 import { Transition } from "@headlessui/react";
 import locale from "@locale/index";
 import Logo from "../assets/logo-metal-chronometrie-dark.png";
-import  BurgerMenuto  from "./BurgerMenu";
+import  BurgerMenuto from "./BurgerMenu";
 
 
 
