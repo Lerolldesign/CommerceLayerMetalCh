@@ -54,8 +54,7 @@ const parsingProduct = (products: SanityProduct[] | SanityProduct, lang = "en_us
           slug: product?.slug[lang].current,
           description: product?.description[lang],
           variants: parsingVariant(product?.variants, lang) as Variant[],
-       
-
+     
         };
         return { ...product, ...localization };
       })
@@ -65,8 +64,6 @@ const parsingProduct = (products: SanityProduct[] | SanityProduct, lang = "en_us
         slug: products?.slug[lang].current,
         description: products?.description[lang],
         variants: parsingVariant(products?.variants, lang) as Variant[],
-        sectiontitle1: products?.sectiontitle1[lang],
-        
   
       };
 };
@@ -107,7 +104,7 @@ const sanityAllTaxonomies = async (catalogId: string, locale = "en-US") => {
         'products': products[]->{
           name,
           description,
-          sectiontitle1,
+          
           reference,
           slug,
           'images': images[]->{
@@ -131,9 +128,8 @@ const sanityGetProduct = async (slug: string, locale = "en-US") => {
   const query = groq`*[_type == "product" && slug["${lang}"].current == "${slug}"]{
     name,
     description,
-    sectiontitle1,
+
     reference,
-    sectiontitle1,
     slug,
     'images': images[]->{
       'url': images.asset->url

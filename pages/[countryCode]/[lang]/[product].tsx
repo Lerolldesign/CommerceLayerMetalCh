@@ -107,7 +107,7 @@ const ProductPage: FunctionComponent<Props> = ({
         <div className="pt-20 lg:pt-60 lg:pl-24">
           <span className="uppercase pt-20 lg:pt-60 left-36 title-font font-bold text-gray-500 tracking-widest text-sm"> Brand</span>
             <h2 className="z-20 text-gray-900 font-metalch text-xl md:text-2xl lg:text-[3rem] lg:leading-[3rem] px-20 sm:px-60 lg:px-0 w-full lg:w-2/3 font-extrabold title-font  md:my-3 uppercase tracking-wider">{product.name}</h2>
-   {product.sectiontitle1}
+       
         </div>
 
 

@@ -14,14 +14,15 @@ export interface SanityTaxon extends Omit<Taxon, "name" | "products"> {
   name: Record<string, string>;
   label: Record<string, string>;
   products: SanityProduct[];
+
 }
 
-export interface SanityProduct extends Omit<Product, "name" | "description" | "slug" | "variants" | "slug" | "sectiontitle1"> {
+export interface SanityProduct extends Omit<Product, "name" | "description" | "slug" | "variants" | "slug"> {
   name: Record<string, string>;
   description: Record<string, string>;
   slug: Record<string, { current: string }>;
   variants: SanityVariant[];
-  sectiontitle1: Record<string, string>;
+
 }
 
 export interface SanityVariant extends Omit<Variant, "name" | "size"> {
