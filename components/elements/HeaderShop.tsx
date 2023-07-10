@@ -9,6 +9,8 @@ import { Country } from "@typings/models";
 import { Transition } from "@headlessui/react";
 import locale from "@locale/index";
 import Logo from "../assets/logo-metal-chronometrie-dark.png";
+import  BurgerMenuto  from "./BurgerMenu";
+
 
 
 
@@ -45,7 +47,7 @@ const HeaderShop: React.FunctionComponent<Props> = ({
                 <Link href="/" passHref>
                   <span className="sr-only">metal chronometrie</span>
                   <Image
-                    className="lg:h-full lg:w-full w-[150px] h-auto"
+                    className="lg:h-full lg:w-full w-[200px] h-auto"
                     src={Logo}
                     alt="Logo Metal Chronometrie"
                     loading="eager"
@@ -58,11 +60,13 @@ const HeaderShop: React.FunctionComponent<Props> = ({
             </div>
 
 
-            <div className="flex items-center p-4 md:p-8 bg-transparent border rounded-full text-left h-[8vh] w-32 md:w-40  absolute justify-end inset-y-0 right-0">
+            <div className="flex items-center !bg-white p-4 md:p-8 bg-transparent border rounded-full text-left h-[8vh] md:h-[6vh] w-32 md:w-40  absolute justify-end inset-y-0 right-0">
+            <BurgerMenuto />
               {showMenu && (
                 <a href="#" onClick={handleAnimation}>
                   
                   <div className="flex flex-row items-center">
+           
                     <span className="absolute right-10 uppercase font-metalch md:inline-block mx-4 md:mx-7">{locale[lang].shoppingBag}</span>
                     <LineItemsContainer>
                       <LineItemsCount className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium leading-5 bg-indigo-500 hover:bg-indigo-400 text-gray-50" />

@@ -60,7 +60,7 @@ const ShoppingBag: React.FunctionComponent<Props> = ({ handleAnimation, lang = "
           aria-labelledby="slide-over-heading"
         >
           <Transition
-            className="md:w-screen max-w-sm md:max-w-md lg:max-w-lg bg-white"
+            className="xl:rounded-tl-lg extra-nav md:w-screen max-w-sm md:max-w-md lg:max-w-6xl bg-[white]"
             show={active}
             enter="transform transition ease-in-out duration-500 sm:duration-700"
             enterFrom="translate-x-full"
@@ -76,14 +76,14 @@ const ShoppingBag: React.FunctionComponent<Props> = ({ handleAnimation, lang = "
                     <h2 className="text-lg leading-7 font-medium text-gray-900 font-metalch">
                       {locale[lang].yourShoppingCart} <LineItemsCount /> {locale[lang].items}
                     </h2>
-                    <div className="h-7 flex items-center">
+                    <div className="h-10 flex items-center">
                       <button
                         aria-label="Close panel"
-                        className="text-gray-400 hover:text-gray-500 transition ease-in-out duration-150"
+                        className="text-[#242323] mt-[6vh] mr-16 !text-5xl hover:text-gray-500 transition ease-in-out duration-150"
                         onClick={handleAnimation}
                       >
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        <svg className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth=".8" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </button>
                     </div>
