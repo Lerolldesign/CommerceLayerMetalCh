@@ -1,21 +1,27 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import _ from "lodash";
 import { CommerceLayer, OrderContainer, OrderStorage } from "@commercelayer/react-components";
+import { InstantSearch, Configure } from "react-instantsearch-dom";
 import queryString from "query-string";
 import Layout from "@components/Layout";
-
+import HeaderShop from "@components/elements/HeaderShop";
+import CustomPagination from "@components/CustomPagination";
+import Taxonomies from "@components/Taxonomies";
+import CustomSearchBox from "@components/CustomSearchBox";
+import CustomRefinementList from "@components/CustomRefinementList";
+import CustomSortBy from "@components/CustomSortBy";
+import CustomHits from "@components/CustomHits";
+import { searchClient } from "@utils/algolia";
 import { parseLanguageCode, parseLocale } from "@utils/parser";
 import { cmsFunctions } from "@utils/cms";
 import { useGetToken } from "@hooks/GetToken";
-import { Country } from "@typings/models";
-import HeaderShop from "@components/elements/HeaderShop";
 import locale from "@locale/index";
-import { Collection } from "@typings/models";
+import { Country } from "@typings/models";
 
 type Props = {
-  collection: Collection;
   lang: string;
   cms: string;
   taxonomies: any;
@@ -32,6 +38,7 @@ type Props = {
 };
 
 const FilterPage: NextPage<Props> = ({
+  taxonomies,
   country,
   clientId,
   endpoint,
@@ -68,11 +75,88 @@ const FilterPage: NextPage<Props> = ({
     <CommerceLayer accessToken={token} endpoint={endpoint}>
       <OrderStorage persistKey={`order-${code}`}>
         <OrderContainer attributes={{ language_code: languageCode }}>
-          <Layout cms={cms}  lang={lang} buildLanguages={buildLanguages} countries={countries}>
+        <Layout cms={cms} lang={lang} buildLanguages={buildLanguages} countries={countries}>
             <HeaderShop lang={lang} />
-            {locale[lang].welcomeTo}{"mi amor di coeur"}
-            <h1 className="text-green-600 font-metalch py-5 text-5xl hidden md:bloc lg:block">    {locale[lang].imhungry}</h1>
-        
+            {showSearch ? (
+              <InstantSearch searchClient={searchClient} indexName={collectionName}>
+                <Configure facetingAfterDistinct />
+                <div className="px-3 lg:px-0 container mx-auto max-w-screen-lg flex flex-wrap sm:flex-nowrap">
+                  <div className="flex-shrink md:flex-shrink-0 md:pr-4 pb-4 w-full sm:w-auto">
+                    <div className="flex items-center mb-5 mt-3">
+                      <button
+                        type="button"
+                        aria-pressed="false"
+                        aria-labelledby="toggleLabel"
+                        className={`${
+                          activeAlgolia ? "bg-blue-500" : "bg-gray-200"
+                        } relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
+                        onClick={handleActiveAlgolia}
+                      >
+                        <span className="sr-only">Enable algolia</span>
+                        <span
+                          aria-hidden="true"
+                          className={`${
+                            activeAlgolia ? "translate-x-5" : "translate-x-0"
+                          } inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200`}
+                        ></span>
+                      </button>
+                      <span className="ml-3" id="toggleLabel">
+                        <Image title="Algolia" src="/algolia.svg" alt="Algolia's Logo" width={200} height="50" />
+                      </span>
+                    </div>
+                    <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide mb-4">
+                      {locale[lang].categories}:
+                    </h2>
+                    <CustomRefinementList attribute={locale[lang].algoliaCategory} />
+                  </div>
+                  <div className="my-5 md:my-0 sm:ml-10 lg:col-span-2 w-full">
+                    <div className="flex flex-row flex-wrap md:flex-nowrap items-center justify-center px-4 md:px-0 md:justify-between mt-1 mb-3.5 space-x-5">
+                      <div className="w-full lg:w-9/12">
+                        <CustomSearchBox />
+                      </div>
+                      <div className="flex flex-row items-center space-x-5 w-full md:w-1/2 lg:w-auto mt-1 md:mt-0">
+                        <div className="flex-shrink-0">
+                          <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">
+                            {locale[lang].sortBy}:
+                          </h2>
+                        </div>
+                        <div className="w-full flex-shrink">
+                          <CustomSortBy
+                            defaultRefinement={collectionName}
+                            items={[
+                              {
+                                value: `${collectionName}`,
+                                label: locale[lang].featured
+                              },
+                              {
+                                value: `${collectionName}_price_desc`,
+                                label: locale[lang].highestPrice
+                              },
+                              {
+                                value: `${collectionName}_price_asc`,
+                                label: locale[lang].lowestPrice
+                              }
+                            ]}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <CustomHits />
+                    <div className="mt-10">
+                      <CustomPagination showFirst />
+                    </div>
+                  </div>
+                </div>
+              </InstantSearch>
+            ) : (
+              <Taxonomies
+                cms={cms}
+                taxonomies={taxonomies}
+                algoliaStatus={activeAlgolia}
+                activeAlgolia={handleActiveAlgolia}
+                searchEngine={!_.isEmpty(searchEngine)}
+              />
+            )}
           </Layout>
         </OrderContainer>
       </OrderStorage>
@@ -109,6 +193,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       props: {
         country,
         countries,
+        taxonomies,
         clientId: process.env.CL_CLIENT_ID,
         endpoint: process.env.CL_ENDPOINT,
         buildLanguages,
