@@ -39,7 +39,6 @@ const FilterPage: NextPage<Props> = ({
   buildLanguages = [],
   countries = [],
   lang,
-  collection,
   cms
 }) => {
   const {
@@ -72,7 +71,7 @@ const FilterPage: NextPage<Props> = ({
           <Layout cms={cms}  lang={lang} buildLanguages={buildLanguages} countries={countries}>
             <HeaderShop lang={lang} />
             {locale[lang].welcomeTo}{"mi amor di coeur"}
-            <h1 className="text-green-600 font-metalch py-5 text-5xl hidden md:block lg:block">    {locale[lang].imhungry}</h1>
+            <h1 className="text-green-600 font-metalch py-5 text-5xl hidden md:bloc lg:block">    {locale[lang].imhungry}</h1>
         
           </Layout>
         </OrderContainer>
