@@ -1,5 +1,8 @@
 import React, { useContext, useState, FunctionComponent, useEffect } from "react";
+
+
 import { GetStaticPaths, GetStaticProps } from "next";
+
 import Image from "next/image";
 import _ from "lodash";
 import Layout from "@components/Layout";
@@ -18,6 +21,8 @@ import locale from "@locale/index";
 import { parseImg, parseLanguageCode } from "@utils/parser";
 import { cmsFunctions } from "@utils/cms";
 import { Product, Country } from "@typings/models";
+
+
 
 
 
@@ -56,7 +61,8 @@ const ProductPage: FunctionComponent<Props> = ({
   marketId,
   buildLanguages,
   cms,
-  countries
+  countries,
+
 }) => {
   const router = useRouter();
   const token = useGetToken({
@@ -65,6 +71,7 @@ const ProductPage: FunctionComponent<Props> = ({
     scope: marketId,
     countryCode: router.query?.countryCode as string
   });
+
   const imgUrl = parseImg(_.first(product?.images)?.url as string, cms);
   const firstVariantCode = _.first(product?.variants)?.code as string;
   const variantOptions = product?.variants?.map((variant) => {
@@ -93,12 +100,14 @@ const ProductPage: FunctionComponent<Props> = ({
           <Layout cms={cms} pageTitle={product.name} lang={lang} buildLanguages={buildLanguages} countries={countries}>
 
 <div className="h-auto flex w-full text-center lg:text-left">
+ 
   <div className=" w-full flex flex-wrap bg-grey-light">
    
       <div className=" h-auto  w-full lg:w-1/3 bg-grey">
         <div className="pt-20 lg:pt-60 lg:pl-24">
           <span className="uppercase pt-20 lg:pt-60 left-36 title-font font-bold text-gray-500 tracking-widest text-sm"> Brand</span>
             <h2 className="z-20 text-gray-900 font-metalch text-xl md:text-2xl lg:text-[3rem] lg:leading-[3rem] px-20 sm:px-60 lg:px-0 w-full lg:w-2/3 font-extrabold title-font  md:my-3 uppercase tracking-wider">{product.name}</h2>
+   {product.sectiontitle1}
         </div>
 
 
@@ -146,7 +155,7 @@ const ProductPage: FunctionComponent<Props> = ({
             <AddToCartButton
                       skuCode={selectedVariant}
                       label={locale[lang].addToCart as string}
-                      className="btn_mask text-[1rem] text-white tracking-wide font-bold rounded-full bg-black focus:outline-none focus:ring-3 focus:ring-offset-2 focus:ring-metal disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="btn_mask text-[.9rem] text-white tracking-wide font-metalch font-bold rounded-full bg-black focus:outline-none focus:ring-3 focus:ring-offset-2 focus:ring-metal disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {AddToCartCustom}
             </AddToCartButton>
@@ -171,6 +180,7 @@ const ProductPage: FunctionComponent<Props> = ({
 </div> 
 </div>
 </div>
+
 
           </Layout>
         </OrderContainer>
@@ -210,7 +220,8 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
       marketId: `market:${country?.marketId}`,
       buildLanguages,
       cms: process.env.BUILD_CMS,
-      countries
+      countries,
+    
     },
     revalidate: 60
   };

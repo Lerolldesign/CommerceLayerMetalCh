@@ -12,15 +12,13 @@ import Logo from "../assets/logo-metal-chronometrie-dark.png";
 import  BurgerMenuto from "./BurgerMenu";
 
 
-
-
-
 type Props = {
 
   showMenu?: boolean;
   lang?: string;
   buildLanguages?: Country[];
   countries?: Country[];
+
 };
 
 const HeaderShop: React.FunctionComponent<Props> = ({
@@ -69,7 +67,7 @@ const HeaderShop: React.FunctionComponent<Props> = ({
            
                     <span className="absolute right-10 uppercase font-metalch md:inline-block mx-4 md:mx-7">{locale[lang].shoppingBag}</span>
                     <LineItemsContainer>
-                      <LineItemsCount className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium leading-5 bg-indigo-500 hover:bg-indigo-400 text-gray-50" />
+                      <LineItemsCount className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium leading-5 bg-metal hover:bg-black text-gray-50" />
                     </LineItemsContainer>
                   </div>
                 </a>
@@ -135,6 +133,7 @@ const HeaderShop: React.FunctionComponent<Props> = ({
         </Transition>
       </div>
       <ShoppingBag active={animation} handleAnimation={handleAnimation} lang={lang} />
+
    
     </div>
   </ div>

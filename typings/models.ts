@@ -39,6 +39,8 @@ export interface Product {
   reference: string;
   description: string;
   images: Image[];
+  sectiontitle1: string;
+
 }
 
 export interface Variant {

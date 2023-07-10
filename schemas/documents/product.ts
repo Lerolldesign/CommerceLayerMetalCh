@@ -61,7 +61,18 @@ export default defineType({
         }
       ],
       validation: (rule) => rule.required()
-    })
+    }),
+
+    defineField({
+      name: 'sectiontitle1',
+      title: 'Section1title',
+      type: 'localeString',
+    }),
+    defineField({
+      name: "sectionbgimage1",
+      title: "Section 1 image",
+      type: "image",
+    }),
   ],
 
   preview: {
