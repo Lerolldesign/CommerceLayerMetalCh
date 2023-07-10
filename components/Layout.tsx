@@ -52,7 +52,7 @@ const Layout: React.FunctionComponent<Props> = ({
      
         <div className="z-10 relative pt-5 pb-10 px-5 lg:px-0 lg:pb-16 max-w-screen-lg mx-auto">
           <div className="max-w-9xl mx-auto">
-          <div className="hidden md:hidden md:absolute md:inset-y-0 md:right-40 md:flex md:items-center md:justify-end md:space-x-5">
+          <div className="hidden md:hidden md:absolute md:inset-y-0 md:right-40 md:items-center md:justify-end md:space-x-5">
                 {showMenu && <CountrySelector options={countries} />}
                 {showMenu && <LanguageSelector options={buildLanguages} />}
               </div>
