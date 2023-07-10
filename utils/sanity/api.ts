@@ -173,7 +173,8 @@ const sanityGetCollection = async (slug: string, locale = "en-US") => {
 const sanityData = {
   sanityAllCountries,
   sanityAllTaxonomies,
-  sanityGetProduct
+  sanityGetProduct,
+  sanityGetCollection,
 };
 
 export default sanityData;
